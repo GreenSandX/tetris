@@ -1,6 +1,6 @@
 class_name BrickFactory
 
-var brick_prefab = preload("res://Game/BrickFactory/Brick.tscn")
+var brick_prefab = preload("./Brick.tscn")
 
 var typeList = {
 	1:[
@@ -8,21 +8,21 @@ var typeList = {
 
 	2:[						[ 0,-1],
 			[-2, 0],[-1, 0],[ 0, 0],		],	# L
-			
+
 	3:[		[-2,-1],[-1,-1],[ 0,-1],
 							[ 0, 0]			],	# L_flip
 
 	4:[				[-1,-1],
 			[-2, 0],[-1, 0],[ 0, 0]			],	# T
 
-	5:[		[-1,-1],[ 0,-1],
-					[ 0, 0],[ 1, 0]			],	# N
+	5:[				[-1,-1],[ 0,-1],
+							[ 0, 0],[ 1, 0]	],	# N
 
-	6:[				[ 0,-1],[ 1,-1],
-			[-1, 0],[ 0, 0]					],	# N_flip
+	6:[						[ 0,-1],[ 1,-1],
+					[-1, 0],[ 0, 0]			],	# N_flip
 
-	7:[		[-1,-1],[ 0,-1],
-			[-1, 0],[ 0, 0]					]	# O
+	7:[				[-1,-1],[ 0,-1],
+					[-1, 0],[ 0, 0]			]	# O
 }
 
 var colorList = {
@@ -36,15 +36,16 @@ var colorList = {
 }
 
 
-func create_brick_in(owner:Node2D, position:Vector2, type:int = 0) -> Node2D:
+func create_brick_in(owner:Node2D, position:Vector2, type:int = 1) -> Node2D:
 	#
 	var brick:Node2D = brick_prefab.instance()
 	brick.global_position = position
 	owner.add_child(brick)
-	#
-	brick.get_material().set_shader_param("color", colorList.get(type))
+	# 增加 Bit 块
 	for i in typeList.get(type):
-		brick.set_cell(i[0], i[1], 0)
+		brick.add_cell(i[0], i[1])
+	# 改变颜色
+	brick.get_material().set_shader_param("color", colorList.get(type))
 	
 	return brick
 

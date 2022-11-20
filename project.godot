@@ -9,13 +9,31 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Area2D",
+"class": "Bit",
+"language": "GDScript",
+"path": "res://Game/BrickFactory/Bit.gd"
+}, {
+"base": "RigidBody2D",
+"class": "Brick",
+"language": "GDScript",
+"path": "res://Game/BrickFactory/Brick.gd"
+}, {
 "base": "Reference",
 "class": "BrickFactory",
 "language": "GDScript",
 "path": "res://Game/BrickFactory/BrickFactory.gd"
+}, {
+"base": "Node",
+"class": "Game_para",
+"language": "GDScript",
+"path": "res://Game/Game_para.gd"
 } ]
 _global_script_class_icons={
-"BrickFactory": ""
+"Bit": "",
+"Brick": "",
+"BrickFactory": "",
+"Game_para": ""
 }
 
 [application]
@@ -23,6 +41,10 @@ _global_script_class_icons={
 config/name="tetris"
 run/main_scene="res://Root.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+GamePara="*res://Game/Game_para.gd"
 
 [display]
 
@@ -52,6 +74,11 @@ ui_right={
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":16777233,"unicode":0,"echo":false,"script":null)
  ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="Link_Point"
+2d_physics/layer_2="Bit"
 
 [physics]
 

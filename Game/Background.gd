@@ -1,10 +1,7 @@
 extends TileMap
 
-func _ready():
-	visible = false
 
-func Init(width, height):
-	visible = true
+func create(width:int, height:int):
 	for i in range(width):
 		for j in range(height):
 			set_cell(i, j, 0)
