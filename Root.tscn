@@ -1,10 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Game/Game.gd" type="Script" id=1]
 [ext_resource path="res://Assets/block16.png" type="Texture" id=2]
-[ext_resource path="res://Game/BrickGen.gd" type="Script" id=3]
 [ext_resource path="res://Game/Background.gd" type="Script" id=4]
-[ext_resource path="res://Game/BrickFactory/BrickFactory.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/trans16.png" type="Texture" id=6]
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
@@ -60,8 +58,3 @@ script = ExtResource( 4 )
 
 [node name="Camera2D" type="Camera2D" parent="Game"]
 current = true
-
-[node name="BrickGen" type="Node2D" parent="Game"]
-script = ExtResource( 3 )
-
-[node name="BrickFactory" parent="Game" instance=ExtResource( 5 )]

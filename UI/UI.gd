@@ -1,6 +1,6 @@
-extends Node2D
+extends Control
 
-
+onready var button = $Button
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
