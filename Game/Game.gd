@@ -30,15 +30,23 @@ func _process(delta):
 func _input(event):
 	
 	if event.is_action_pressed("ui_right"):
+		if selected_brick == null:
+			return
 		selected_brick.move_towards(Vector2.RIGHT)
 #		selected_brick.position.x =  selected_brick.position.x + 16
 	if event.is_action_pressed("ui_left"):
+		if selected_brick == null:
+			return
 		selected_brick.move_towards(Vector2.LEFT)
 #		selected_brick.position.x =  selected_brick.position.x - 16
 	if event.is_action_pressed("ui_up"):
+		if selected_brick == null:
+			return
 		selected_brick.move_towards(Vector2.UP)
 #		selected_brick.position.y =  selected_brick.position.y - 16
 	if event.is_action_pressed("ui_down"):
+		if selected_brick == null:
+			return
 		selected_brick.move_towards(Vector2.DOWN)
 #		selected_brick.position.y =  selected_brick.position.y + 16
 	
@@ -48,15 +56,18 @@ func _input(event):
 				brickFactory.create_brick_in(self, Vector2(
 						(position.x + randi() % (WIDTH - 2) + 2) * BLOCK_STEP, 
 						position.y + 16),
-						randi() % 7 + 1))
+#						randi() % 7 + 1))
+						0))
 	
-	if event is InputEventMouseButton:
-		if event.button_index == BUTTON_LEFT and event.pressed:
-			brickFactory.create_brick_in(self, get_global_mouse_position(), 2)
-	
-	if event is InputEventMouseButton:
-		if event.button_index == BUTTON_RIGHT and event.pressed:
-			selected_brick.move_to(get_global_mouse_position())
+	if event.is_action_pressed("btn_1"):
+		brickFactory.next_type = 1
+#	if event is InputEventMouseButton:
+#		if event.button_index == BUTTON_LEFT and event.pressed:
+#			brickFactory.create_brick_in(self, get_global_mouse_position(), 2)
+#
+#	if event is InputEventMouseButton:
+#		if event.button_index == BUTTON_RIGHT and event.pressed:
+#			selected_brick.move_to(get_global_mouse_position())
 
 
 func startGame():
@@ -75,3 +86,6 @@ func select_brick(brick:Node2D):
 
 func getGravity():
 	return GRAVITY
+
+
+

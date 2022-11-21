@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Game/Game.gd" type="Script" id=1]
 [ext_resource path="res://Assets/block16.png" type="Texture" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://Game/BrickFactory/Brick.gd" type="Script" id=5]
 [ext_resource path="res://Assets/trans16.png" type="Texture" id=6]
 [ext_resource path="res://shader/color_swap.tres" type="Shader" id=7]
-[ext_resource path="res://Game/BrickFactory/Bit_Shape.tscn" type="PackedScene" id=8]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
@@ -100,5 +99,3 @@ use_parent_material = true
 tile_set = SubResource( 9 )
 cell_size = Vector2( 16, 16 )
 format = 1
-
-[node name="Bit_Shape" parent="Game/Brick" instance=ExtResource( 8 )]
